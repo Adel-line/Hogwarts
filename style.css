@@ -80,8 +80,12 @@ header {
   flex-direction: column;
 }
 
-.modalhide {
-  /* display: none; */
+.hide {
+  display: none;
+}
+
+.close {
+  width: 20%;
 }
 
 #studIMG {

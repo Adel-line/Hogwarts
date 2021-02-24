@@ -164,7 +164,10 @@ function displayStudents(student) {
   const clone = document
     .querySelector("template#student")
     .content.cloneNode(true);
-
+  //open modal
+  clone
+    .querySelector("[data-field=first]")
+    .addEventListener("click", clickStudent);
   // set clone data
   clone.querySelector("[data-field=first]").textContent = student.firstName;
   // clone.querySelector("[data-field=middle]").textContent = student.middleName;
@@ -177,7 +180,6 @@ function displayStudents(student) {
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
   //
-  clickStudent();
   // TRIGGER MODAL
   function clickStudent() {
     console.log("clickStudent");
@@ -188,14 +190,18 @@ function displayStudents(student) {
 // MODAL
 
 function showModal(student) {
+  console.log("Show Modal");
+  //
   console.log(student);
-  const modal = document.querySelector(".modalhide");
+  //
+  // document.querySelector(".modalContent").classList.remove("modalhide");
+  const modal = document.querySelector("#modal");
+  //
   modal.querySelector(".modalStudentName").textContent =
     student.firstName + " " + student.middleName + " " + student.lastName;
   modal.querySelector(".modalHouse").textContent = student.house;
   modal.querySelector(".modalGender").textContent = "Gender: " + student.gender;
   modal.querySelector(".modalImage").src = `images/${student.image}`;
-  // modal.querySelector(".modalEmblem").src = `emblems/${student.house}`;
   modal.querySelector(".modalEmblem").src = `emblems/hogwarts.png`;
   modal.querySelector(".modalPrefect").textContent =
     "Prefect: " + "is/not prefect";
@@ -206,6 +212,15 @@ function showModal(student) {
   //   "Member of Inquisitorial Squad: " + "is/not member";
   // modal.querySelector(".modalBloodType").textContent =
   //   "Blood Status: " + "blood type";
+  // closeModal();
+
+  modal.classList.remove("hide");
+  document.querySelector(".close").addEventListener("click", closeModal);
+  //
+  function closeModal() {
+    document.querySelector(".modalContent").classList.add("hide");
+    modal.querySelector(".modalCotent").classList.remove(student.house);
+  }
 }
 
 // display filtered results
