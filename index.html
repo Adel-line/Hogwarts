@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hogwarts Student list</title>
+  </head>
+  <body>
+    <header>
+      <div id="hogLogo"></div>
+      <h1>Hogwarts School of Witchcraft and Wizardry</h1>
+      <label><input type="text" placeholder="search" /></label>
+    </header>
+    <main>
+      <div id="filters&sort">
+        <div id="filterContainer">
+          <label></label><br />
+          <button class="filter" data-action="filter" data-filter="Slytherin">
+            Slytherin</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="Ravenclaw">
+            Ravenclaw</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="Hufflepuff">
+            Hufflepuff</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="Gryffindor">
+            Gryffindor</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="bloodType">
+            Blood Type</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="prefect">
+            Prefect</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="expelled">
+            Expelled</button
+          ><br />
+          <button class="filter" data-action="filter" data-filter="all">
+            All Students</button
+          ><br />
+        </div>
+        <br />
+
+        <h2>Class of 1991</h2>
+        <div id="sorters">
+          <h3>Sort by:</h3>
+          <div id="sorting">
+            <button class="sort" data-action="filter" data-filter="name">
+              Name (A-Z)</button
+            ><br />
+            <button class="sort" data-action="filter" data-filter="house">
+              House (A-Z)</button
+            ><br />
+          </div>
+        </div>
+      </div>
+
+      <table id="list">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <!-- <th>Middle Name </th> -->
+            <th>Last Name</th>
+            <!-- <th>Nickname </th>
+            <th>Gender </th> -->
+            <th>House</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- student template will be copied and inserted here -->
+        </tbody>
+      </table>
+    </main>
+    <template id="student">
+      <tr>
+        <td data-field="first">First Name</td>
+        <!-- <td data-field="middle">Middle Name</td> -->
+        <td data-field="last">Last Name</td>
+        <!-- <td data-field="nick">Nick Name</td> -->
+        <!-- <td data-field="gender">gender</td> -->
+        <td data-field="House">House</td>
+      </tr>
+    </template>
+
+    <div class="modalhide">
+      <div class="modalContent">
+        <div class="modalImages">
+          <img class="modalImage" src="" alt="" />
+          <img class="modalEmblem" src="" alt="" />
+        </div>
+        <h1 class="modalStudentName">Student Name</h1>
+        <!-- <td data-field="firstName" class="modalFirstName">FIRST NAME</td><br> -->
+        <!-- <td data-field="middleName" class="modalMiddleName">MIDDLE NAME</td><br> -->
+        <!-- <td data-field="nickName" class="modalNickName">NICK NAME</td><br> -->
+        <!-- <td data-field="lastName" class="modalLastName">LAST NAME</td><br> -->
+        <h2 class="modalHouse">house</h2>
+        <p class="modalGender">gender</p>
+        <p class="modalBlood">Blood Type</p>
+        <p class="modalPrefect">prefect</p>
+        <p class="modalExpelled">expelled</p>
+        <div class="modalColor"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
