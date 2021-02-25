@@ -2,6 +2,8 @@
 
 //student array
 const allStudents = [];
+//search bar
+const searchBar = document.querySelector("#searchBAR");
 //filtered studetns
 let allStudentsFiltered = [];
 //expelled students
@@ -197,6 +199,20 @@ function displayStudents(student) {
     showModal(student);
   }
 }
+
+// SEARCH FOR STUDENT
+searchBar.addEventListener("keyup", (e) => {
+  //
+  console.log("Show search result");
+  const searchString = e.target.value;
+  const filteredStudents = allStudents.filter((student) => {
+    return (
+      student.firstName.includes(searchString) ||
+      student.house.includes(searchString)
+    );
+  });
+  displayListwithFilter(filteredStudents);
+});
 
 // MODAL
 
