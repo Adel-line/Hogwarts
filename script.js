@@ -4,6 +4,9 @@
 const allStudents = [];
 //filtered studetns
 let allStudentsFiltered = [];
+//expelled students
+let expelledStudents = [];
+
 // creat prototype
 const Students = {
   firstName: "",
@@ -42,6 +45,13 @@ function init() {
   document
     .querySelector("[data-filter=all]")
     .addEventListener("click", allButton);
+  //sort buttons
+  document
+    .querySelector("[data-filter=name]")
+    .addEventListener("click", sortFirstName);
+  document
+    .querySelector("[data-filter=house]")
+    .addEventListener("click", sortHouseName);
 }
 
 function loadJSON() {
@@ -61,8 +71,9 @@ function prepareObject(data) {
   console.log("Prepare Objects");
   //
   data.forEach((jsonObject) => {
-    // new object created with cleaned data --> will be in allAnimals
+    // new object created with cleaned data
     const student = Object.create(Students);
+
     // remove blanks
     const space = jsonObject.fullname.trim();
     // split name
@@ -75,10 +86,10 @@ function prepareObject(data) {
     } else {
       student.firstName = space.substring(0, firstSpace);
     }
-    // get first name
-    // student.firstName =
-    //   student.firstName.substring(0, 1).toUpperCase() +
-    //   student.firstName.substring(1).toLowerCase();
+    // get first name (with UPPERCASE, important for Sorting)
+    student.firstName =
+      student.firstName.substring(0, 1).toUpperCase() +
+      student.firstName.substring(1).toLowerCase();
 
     // lastName
     if (secondSpace == -1) {
@@ -213,13 +224,15 @@ function showModal(student) {
   // modal.querySelector(".modalBloodType").textContent =
   //   "Blood Status: " + "blood type";
   // closeModal();
-
+  modal.querySelector(".expell").addEventListener("click", expellStudent);
+  modal.querySelector(".prefect").addEventListener("click", makePrefect);
+  //
   modal.classList.remove("hide");
   document.querySelector(".close").addEventListener("click", closeModal);
   //
   function closeModal() {
     document.querySelector(".modalContent").classList.add("hide");
-    modal.querySelector(".modalCotent").classList.remove(student.house);
+    document.querySelector(".modalCotent").classList.remove(student.house);
   }
 }
 
@@ -230,24 +243,6 @@ function displayListwithFilter(filtered) {
   filtered.forEach(displayStudents);
 }
 //filter buttons
-
-//slytherin
-function slytherinButton() {
-  //
-  console.log("All Slytherin students");
-  //
-  const onlySlytherin = allStudents.filter(isSlytherin);
-  allStudentsFiltered = onlySlytherin;
-  displayListwithFilter(onlySlytherin);
-}
-
-function isSlytherin(student) {
-  if (student.house === "Slytherin") {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 //slytherin
 function slytherinButton() {
@@ -373,4 +368,91 @@ function isAllStudents(student) {
   } else {
     return false;
   }
+}
+
+// SORTING FUNCTIONs
+
+function sortFirstName() {
+  allStudents.sort(compareName);
+  console.log(allStudentsFiltered);
+  displayListwithFilter(allStudents);
+}
+
+function sortHouseName() {
+  allStudents.sort(compareHouse);
+  console.log(allStudentsFiltered);
+  displayListwithFilter(allStudents);
+}
+
+function compareName(a, b) {
+  if (a.firstName < b.firstName) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+
+function compareHouse(a, b) {
+  if (a.house < b.house) {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+
+function displayListwithFilter(filtered) {
+  document.querySelector("#list tbody").innerHTML = "";
+  // build a new list
+  filtered.forEach(displayStudents);
+}
+
+//Expelling Students
+
+function expelledButton() {
+  // const onlyExpelled = allStudents.filter(isExpelled);
+  console.log("expelled Button");
+  const onlyExpelled = allStudentsExpelled;
+  allStudentsFiltered = onlyExpelled;
+  displayListFiltered(onlyExpelled);
+}
+
+function isExpelled(student) {
+  if (student.expelled === "Expelled") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function allButton() {
+  const onlyAll = allStudents.filter(isAll);
+  displayList(loadJSON);
+  displayList(onlyAll);
+}
+
+function isAll(student) {
+  if (student.all === "all") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//
+function makePrefect() {
+  console.log("Make student Prect");
+}
+
+//
+function expellStudent() {
+  console.log("Expell this student");
+  //
+  // modal.querySelector(".expell").removeEventListener("click", expellStudent);
+  // student.expelled = true;
+  // allStudents = allStudentsFiltered.filter(expelled);
+  // allStudentsFiltered = allStudentsFiltered.filter(expelled);
+  // expelledStudents.unshift(student);
+  // console.log("this is the expeld students");
+  // console.log(allStudentsExpeld);
+  // displayListFiltered(allStudentsFiltered);
 }

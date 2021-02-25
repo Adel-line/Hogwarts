@@ -14,6 +14,7 @@
       <label><input type="text" placeholder="search" /></label>
     </header>
     <main>
+      <h2>Class of 1991</h2>
       <div id="filters&sort">
         <div id="filterContainer">
           <label></label><br />
@@ -44,7 +45,6 @@
         </div>
         <br />
 
-        <h2>Class of 1991</h2>
         <div id="sorters">
           <h3>Sort by:</h3>
           <div id="sorting">
@@ -74,20 +74,21 @@
         </tbody>
       </table>
     </main>
+    <section is="sectionSTUD"></section>
     <template id="student">
-      <tr>
-        <td data-field="first">First Name</td>
-        <!-- <td data-field="middle">Middle Name</td> -->
-        <td data-field="last">Last Name</td>
-        <!-- <td data-field="nick">Nick Name</td> -->
-        <!-- <td data-field="gender">gender</td> -->
-        <td data-field="House">House</td>
-      </tr>
+        <tr>
+          <td data-field="first">First Name</td>
+          <!-- <td data-field="middle">Middle Name</td> -->
+          <td data-field="last">Last Name</td>
+          <!-- <td data-field="nick">Nick Name</td> -->
+          <!-- <td data-field="gender">gender</td> -->
+          <td data-field="House">House</td>
+        </tr>
     </template>
-
+  </section>
     <div id="modal" class="hide">
       <div class="modalContent">
-        <button class="close">Close</button>
+        <button class="close">X</button>
         <div class="modalImages">
           <img class="modalImage" src="" alt="" />
           <img class="modalEmblem" src="" alt="" />
@@ -100,8 +101,12 @@
         <h2 class="modalHouse">house</h2>
         <p class="modalGender">gender</p>
         <p class="modalBlood">Blood Type</p>
-        <p class="modalPrefect">prefect</p>
-        <p class="modalExpelled">expelled</p>
+        <p class="modalPrefect">Is/Is not prefect</p>
+        <p class="modalExpelled">Is/Is not expelled</p>
+        <div id="actions">
+        <button class="expell">Expell Student</button>
+        <button class="prefect">Make Prefect</button>
+      </div>
         <div class="modalColor"></div>
       </div>
     </div>
