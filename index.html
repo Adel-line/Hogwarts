@@ -10,11 +10,8 @@
   <body>
     <header>
       <div id="hogLogo"></div>
-      <h1>Hogwarts School of Witchcraft and Wizardry</h1>
-      <label><input type="text" id="searchBAR" placeholder="search for student" /></label>
     </header>
     <main>
-      <h2>Class of 1991</h2>
       <div id="filters&sort">
         <div id="filterContainer">
           <label></label><br />
@@ -46,7 +43,7 @@
         <br />
 
         <div id="sorters">
-          <h3>Sort by:</h3>
+          <p>Sort by:</p>
           <div id="sorting">
             <button class="sort" data-action="filter" data-filter="name">
               Name (A-Z)</button
@@ -55,17 +52,28 @@
               House (A-Z)</button
             ><br />
           </div>
+          <label><input type="text" id="searchBAR" placeholder="search for student" /></label>
         </div>
       </div>
-
+      <div id="allstudentsinH">
+        <div id="total">
+          <p>Total Students :</p>
+          <p id="numberSTUDall"></p>
+      </div>
+        <p>Gryffindor:</p>
+            <p id="gryf"></p>
+            <p>Ravenclaw :</p>
+            <p id="rave"></p>
+            <p>Slytherin :</p>
+            <p id="slyt"></p>
+            <p>Hufflepuff :</p>
+            <p id="huff"></p>
+        </div>
       <table id="list">
         <thead>
           <tr>
             <th>First Name</th>
-            <!-- <th>Middle Name </th> -->
             <th>Last Name</th>
-            <!-- <th>Nickname </th>
-            <th>Gender </th> -->
             <th>House</th>
           </tr>
         </thead>
@@ -78,39 +86,32 @@
     <template id="student">
         <tr>
           <td data-field="first">First Name</td>
-          <!-- <td data-field="middle">Middle Name</td> -->
           <td data-field="last">Last Name</td>
-          <!-- <td data-field="nick">Nick Name</td> -->
-          <!-- <td data-field="gender">gender</td> -->
           <td data-field="House">House</td>
         </tr>
     </template>
   </section>
-    <div id="modal" class="hide">
+    <div class="modal hide">
       <div class="modalContent">
         <button class="close">X</button>
         <div class="modalImages">
           <img class="modalImage" src="" alt="" />
-          <img class="modalEmblem" src="" alt="" />
         </div>
+        <div id="modalTEXT"></div>
         <h1 class="modalStudentName">Student Name</h1>
-        <!-- <td data-field="firstName" class="modalFirstName">FIRST NAME</td><br> -->
-        <!-- <td data-field="middleName" class="modalMiddleName">MIDDLE NAME</td><br> -->
-        <!-- <td data-field="nickName" class="modalNickName">NICK NAME</td><br> -->
-        <!-- <td data-field="lastName" class="modalLastName">LAST NAME</td><br> -->
-        <h2 class="modalHouse">house</h2>
-        <p class="modalGender">gender</p>
-        <p class="modalBlood"></p>
-        <p class="modalMember">Is/Is not member</p>
-        <p class="modalPrefect">Is/Is not prefect</p>
-        <p class="modalExpelled">Is/Is not expelled</p>
-        <div id="actions">
-        <button id="expell">Expell Student</button>
+          <h2 class="modalHouse">House</h2>
+          <p class="modalGender">Gender</p>
+        <p class="modalBlood">Blood type:</p>
+        <p class="modalMember">Is member:</p>
+        <p class="modalPrefect">Is prefect:</p>
+        <p class="modalExpelled">Is expelled: </p>
+        <div class="actions">
+        <button id="expell">Expelliarmus</button>
         <button id="prefect">Make Prefect</button>
       </div>
-        <div class="modalColor"></div>
+      </div>
       </div>
     </div>
-    <script src="script.js"></script>
   </body>
+  <script src="script.js"></script>
 </html>

@@ -1,13 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
+
 body {
-  margin: 0px;
-  padding: 10px;
-  background-color: rgb(228, 221, 192);
+  margin: 0;
+  padding: 1px;
+  background-image: url(./body.jpg);
+  background-repeat: repeat;
+  background-size: contain;
 }
 
 main {
   width: 100%;
-  margin-left: 25px;
-  margin-right: 10px;
+  margin: 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  background-color: antiquewhite;
+  width: 100%;
+  height: 20vw;
+  margin-top: 360vh;
+  margin-bottom: 0;
+}
+
+/* Numbers Listing */
+
+#total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#allstudentsinH {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  text-align: center;
+  margin-left: 8vw;
+  background-color: antiquewhite;
+  opacity: 70%;
 }
 
 /* STUDENTS STYLING */
@@ -22,28 +57,31 @@ tbody {
   color: rgb(19, 15, 15);
   justify-content: space-around;
   font-size: 13px;
-  margin-top: 10px;
+  margin-top: 2vw;
 }
 
 header {
-  height: 30vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  height: 25vw;
 }
 
 #hogLogo {
-  background-image: url(Hogwarts-Logo.png);
+  background-image: url(./Hogwarts\ Header@2x.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 20%;
-  height: 20vh;
+  width: 70%;
+  height: 25vw;
+  margin-left: 15vw;
 }
 
-#subinfo {
-  position: absolute;
-  top: 23vh;
+#searchBAR {
+  height: 3vh;
+  width: 40%;
+  margin-top: 3vh;
+  margin-left: 36vw;
+  background-color: rgb(216, 181, 65);
+  border: 2vw rgb(216, 181, 65);
+  font-family: fantasy;
+  color: brown;
 }
 
 #filterContainer {
@@ -54,92 +92,168 @@ header {
   margin-top: 3vh;
 }
 
-.sort {
-  height: 25px;
-  margin-left: 10px;
-  margin-top: 12px;
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-/* section {
-  background-color: rgb(10, 5, 32);
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 15px;
-} */
+/* BUTTONS */
+
+button {
+  background-color: brown;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: blanchedalmond;
+  height: 30px;
+  width: 10%;
+  border: 2px, beige, double;
+}
+
+button.sort {
+  background-color: rgb(216, 181, 65);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: brown;
+  height: 30px;
+  width: 100%;
+  border: 2px, beige, double;
+}
+
+button#expell {
+  width: 10vw;
+}
+
+button#prefect {
+  width: 10vw;
+}
+
+.close {
+  width: 5vw;
+  align-content: flex-end;
+}
+
+/* SORT */
+.sort {
+  height: 5vh;
+  margin-left: 5vh;
+  margin-top: 3vh;
+}
 
 #sorters {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  align-self: center;
+  margin-left: 5vw;
 }
 
 #sorting {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 30%;
 }
 
 /* MODAL STYLING */
 
-#modal {
-  position: absolute;
-  height: 25vw;
-  top: 65vh;
-  left: 35vw;
-  width: 20%;
+.modal {
+  position: relative;
+  height: 20vh;
+  top: 30vh;
+  left: 33vw;
+  width: 30vw;
 }
 
 .modalContent {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: brown;
-  padding: 15px;
-  /*  */
-  text-align: center;
+  padding: 2vw;
+  text-align: left;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* shadow */
+  filter: drop-shadow(0 0 0.75rem black);
 }
 
 .modalStudentName {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
+}
+
+.modalGender {
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
+}
+.modalHouse {
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
+}
+.modalBlood {
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
+}
+.modalPrefect {
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
+}
+
+.modalExpelled {
+  font-family: "Ubuntu", sans-serif;
+  color: antiquewhite;
 }
 
 .hide {
   display: none;
 }
 
-.close {
-  width: 15%;
-  align-content: flex-end;
+/* MODAL IMAGE */
+
+img.modalImage {
+  margin-left: 1vw;
+  margin-top: 2vw;
 }
 
-#studIMG {
-  position: absolute;
-  height: 15vh;
-  background-color: burlywood;
-  width: 20%;
-  left: 38vw;
+/* HOUSE COLORS */
+
+.Slytherin {
+  /* background-color: rgb(14, 54, 14); */
+  background-image: url(./emblems/SlytherinEMB.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Gryffindor {
+  background-color: rgb(70, 24, 5);
+  background-image: url(./emblems/GryffindorEMB.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Hufflepuff {
+  background-color: rgb(194, 164, 32);
+  background-image: url(./emblems/HufflePuffEMB.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Ravenclaw {
+  background-color: rgb(24, 19, 61);
+  background-image: url(./emblems/RavenClawEMB.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* TEXT EDITING */
 
 h1 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: white;
+  font-family: "Cinzel, serif";
+  color: rgb(56, 6, 6);
   margin-top: 2vh;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 h2 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgb(0, 0, 0);
+  font-family: "Lato, sans-serif";
+  color: white;
   font-size: 25px;
-  text-align: center;
+  text-align: left;
 }
 
 h3 {
@@ -149,16 +263,30 @@ h3 {
   font-size: 20px;
 }
 p {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(56, 3, 3);
+  font-weight: 600;
+  font-size: 1.5vw;
 }
 
 td {
-  font-size: medium;
-  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  padding: 3vw;
   color: rgb(78, 31, 12);
   margin-bottom: 10px;
+  height: 20px;
+  border: 4px brown double;
+}
+
+table {
+  width: 60%;
+  position: absolute;
+  margin-left: 9vw;
+  background-image: url(./table\ background@2x.png);
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 td:hover {
@@ -166,9 +294,9 @@ td:hover {
 }
 
 th {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgb(0, 0, 0);
+  font-family: "Cinzel, serif";
+  font-weight: 600;
+  color: rgb(51, 6, 6);
   font-size: 20px;
   text-align: left;
 }
