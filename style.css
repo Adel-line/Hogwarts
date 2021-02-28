@@ -65,7 +65,7 @@ header {
 }
 
 #hogLogo {
-  background-image: url(./Hogwarts\ Header@2x.png);
+  background-image: url(./HogwartsHeader.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 70%;
@@ -284,7 +284,7 @@ table {
   width: 60%;
   position: absolute;
   margin-left: 9vw;
-  background-image: url(./table\ background@2x.png);
+  background-image: url(./tableBackground.png);
   background-size: contain;
   background-repeat: repeat;
 }
